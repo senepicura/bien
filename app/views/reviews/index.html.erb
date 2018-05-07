@@ -1,17 +1,17 @@
 <% content_for :page_title, "Homepage" %>
 
 <nav class="filters">
-  <%= link_to "All restaurants", root_path %>
+  <%= active_link_to "All restaurants", root_path, active: { price: nil, cuisine: nil, location: nil } %>
 
   <div>
-    <%= link_to "$", root_path(price: 1, cuisine: @cuisine, location: @location) %>
-    <%= link_to "$$", root_path(price: 2, cuisine: @cuisine, location: @location) %>
-    <%= link_to "$$$", root_path(price: 3, cuisine: @cuisine, location: @location) %>
+    <%= active_link_to "$", root_path(price: 1, cuisine: @cuisine, location: @location), active: { price: 1 } %>
+    <%= active_link_to "$$", root_path(price: 2, cuisine: @cuisine, location: @location), active: { price: 2 }  %>
+    <%= active_link_to "$$$", root_path(price: 3, cuisine: @cuisine, location: @location), active: { price: 3 }  %>
   </div>
 
   <div>
-    <%= link_to "Fusion", root_path(cuisine: "Fusion", price: @price, location: @location) %>
-    <%= link_to "English", root_path(cuisine: "English", price: @price, location: @location) %>
+    <%= active_link_to "Fusion", root_path(cuisine: "Fusion", price: @price, location: @location), active: { cuisine: "Fusion" } %>
+    <%= active_link_to "English", root_path(cuisine: "English", price: @price, location: @location), active: { cuisine: "English" } %>
   </div>
 
   <form action="/">
@@ -22,8 +22,17 @@
 
 </nav>
 
+
+
+
 <% @reviews.each do |review| %>
   <div class="review">
-    <%= link_to review.title, review_path(review) %>
+    <%= link_to review_path(review) do %>
+      <h2><%= review.title %></h2>
+      <p>
+        <%= review.cuisine %> -
+        <%= pluralize review.comments.count, "comment" %>
+      </p>
+    <% end %>
   </div>
 <% end %>
