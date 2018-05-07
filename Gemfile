@@ -43,6 +43,10 @@ gem "simple_form"
 # make our filters active
 gem "active_link_to"
 
+# add in a profanity filter
+gem "profanity_filter"
+
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
