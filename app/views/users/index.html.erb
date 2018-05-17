@@ -1,0 +1,10 @@
+<h2>All users</h2>
+
+<% @users.each do |user| %>
+
+<p>
+  <%= user.username %> (<%= user.email %>)
+  <!-- <%= user.password_digest %> -->
+</p>
+
+<% end %>
