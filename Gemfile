@@ -51,6 +51,14 @@ gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 gem "fog-aws"
 
+# add admin panel
+gem 'activeadmin'
+gem 'devise'
+gem 'cancan'
+gem 'draper'
+gem 'pundit'
+
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
