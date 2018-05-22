@@ -46,6 +46,10 @@ gem "active_link_to"
 # add in a profanity filter
 gem "profanity_filter"
 
+# add an image uploader
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem "fog-aws"
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
