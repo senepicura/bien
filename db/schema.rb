@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_22_181726) do
+ActiveRecord::Schema.define(version: 2018_05_27_132356) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 2018_05_22_181726) do
     t.index ["review_id"], name: "index_comments_on_review_id"
   end
 
+  create_table "pages", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.string "url"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -60,6 +69,7 @@ ActiveRecord::Schema.define(version: 2018_05_22_181726) do
     t.float "longitude"
     t.integer "user_id"
     t.string "photo"
+    t.boolean "is_featured", default: false
   end
 
   create_table "users", force: :cascade do |t|
